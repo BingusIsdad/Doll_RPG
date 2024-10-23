@@ -6,7 +6,7 @@ public class Main{
 JFrame window = new JFrame();
 window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 window.setResizable(false);
-window.setTitle("Doll Adventure");
+window.setTitle("Doll RPG");
 main.GamePanel gamePanel = new main.GamePanel();
 window.add(gamePanel);
 window.pack();
