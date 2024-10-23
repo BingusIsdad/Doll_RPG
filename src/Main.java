@@ -6,7 +6,7 @@ public class Main{
 JFrame window = new JFrame();
 window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 window.setResizable(false);
-window.setTitle("2D Adventure");
+window.setTitle("Doll Adventure");
 main.GamePanel gamePanel = new main.GamePanel();
 window.add(gamePanel);
 window.pack();
