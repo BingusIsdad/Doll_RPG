@@ -15,8 +15,8 @@ public class player extends  entity{
     public player(GamePanel gp, KeyHandler keyH){
         this.gp = gp;
         this.keyH = keyH;
-        screenX=gp.screenWidth/2;
-        screenY=gp.screenHeight/2;
+        screenX=gp.screenWidth/2 - (gp.tileSize/2);
+        screenY=gp.screenHeight/2 - (gp.tileSize/2);
         setDefaultValues();
         getPlayerImage();
     }
@@ -105,6 +105,6 @@ public class player extends  entity{
                 }
                 break;
         }
-        g2.drawImage(image, worldX, worldY, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
     }
 }
