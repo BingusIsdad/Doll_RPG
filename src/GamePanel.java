@@ -1,7 +1,7 @@
 package main;
 import javax.swing.JPanel;
 import java.awt.*;
-import entity.player;
+import entity.Player;
 import tile.TileManager;
 
 public class GamePanel extends JPanel implements Runnable {
@@ -24,7 +24,7 @@ public class GamePanel extends JPanel implements Runnable {
     main.KeyHandler keyH = new main.KeyHandler();
     Thread gameThread;
     public CollisionChecker cChecker = new main.CollisionChecker(this);
-   public player player = new player(this, keyH);
+   public Player player = new Player(this, keyH);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));

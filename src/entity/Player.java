@@ -7,12 +7,12 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class player extends Entity {
+public class Player extends Entity {
     GamePanel gp;
     KeyHandler keyH;
     public final int screenX;
     public final int screenY;
-    public player(GamePanel gp, KeyHandler keyH){
+    public Player(GamePanel gp, KeyHandler keyH){
         this.gp = gp;
         this.keyH = keyH;
         screenX=gp.screenWidth/2 - (gp.tileSize/2);
@@ -61,8 +61,16 @@ public class player extends Entity {
                 direction = "right";
                 worldX += speed;
             }
+            //CHECK TILE COLLISION
             collisionOn = false;
             gp.cChecker.checkTile(this);
+            //IF COLLISION IS FALSE, PLAYER CAN MOVE
+            if(collisionOn == false){
+                switch(direction){
+                    case"up":
+                        break;
+                }
+            }
             spriteCounter++;
             if (spriteCounter > 10) {
                 if (spriteNum == 1) {
