@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class player extends  entity{
+public class player extends Entity {
     GamePanel gp;
     KeyHandler keyH;
     public final int screenX;
@@ -61,6 +61,8 @@ public class player extends  entity{
                 direction = "right";
                 worldX += speed;
             }
+            collisionOn = false;
+            gp.cChecker.checkTile(this);
             spriteCounter++;
             if (spriteCounter > 10) {
                 if (spriteNum == 1) {
