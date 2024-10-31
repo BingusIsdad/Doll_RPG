@@ -11,5 +11,7 @@ image = ImageIO.read(getClass().getResourceAsStream("/objects/BetterKey.png"));
         }catch(IOException e){
             e.printStackTrace();
         }
+
+
     }
 }
