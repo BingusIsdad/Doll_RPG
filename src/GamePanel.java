@@ -2,6 +2,7 @@ package main;
 import javax.swing.JPanel;
 import java.awt.*;
 import entity.Player;
+import object.SuperObject;
 import tile.TileManager;
 
 public class GamePanel extends JPanel implements Runnable {
@@ -23,9 +24,10 @@ public class GamePanel extends JPanel implements Runnable {
     TileManager tileM = new TileManager(this);
     main.KeyHandler keyH = new main.KeyHandler();
     Thread gameThread;
-    public CollisionChecker cChecker = new main.CollisionChecker(this);
+    public main.AssetSetter aSetter = new main.AssetSetter(this);
+    public main.CollisionChecker cChecker = new main.CollisionChecker(this);
    public Player player = new Player(this, keyH);
-
+public SuperObject obj[] = new SuperObject[10];
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
@@ -33,7 +35,9 @@ public class GamePanel extends JPanel implements Runnable {
         this.addKeyListener(keyH);
         this.setFocusable(true);
     }
-
+public void setupGame(){
+        aSetter.setObject();
+}
     public void startGameThread() {
         gameThread = new Thread(this);
         gameThread.start();
