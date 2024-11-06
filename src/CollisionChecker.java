@@ -66,7 +66,9 @@ switch(entity.direction){
                     case "up":
                         entity.solidArea.y -= entity.speed;
                         if (entity.solidArea.intersects(gp.obj[i].solidArea)) {
-
+if(gp.obj[i].collision == true){
+    entity.collisionOn = true;
+}
                             break;
                         }
                     case "down":
