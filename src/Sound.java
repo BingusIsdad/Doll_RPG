@@ -16,17 +16,19 @@ public class Sound {
     }
     public void setFile(int i){
 try{
-    AudioInputStream ais = Audio.System.getAudioInputStream(soundURL[i]);
+    AudioInputStream ais = AudioSystem.getAudioInputStream(soundURL[i]);
+    clip = AudioSystem.getClip();
+    clip.open(ais);
     }catch(Exception e) {
 }
     }
     public void play(){
-
+clip.start();
     }
     public void loop(){
-
+clip.loop(Clip.LOOP_CONTINUOUSLY);
     }
     public void stop(){
-
+        clip.stop();
     }
 }
