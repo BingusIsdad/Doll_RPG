@@ -105,7 +105,7 @@ switch(objectName){
         }
         break;
     case"Boots":
-        speed+=2;
+        speed+=25;
         gp.obj[i]=null;
         break;
 }
