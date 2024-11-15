@@ -115,12 +115,11 @@ if(obj[i]!= null){
             g2.dispose();
         }
         public void playMusic(int i){
-sound.setFile(i);
-sound.play();
-sound.loop();
-
-
+            sound.setFile(i);
+            sound.play();
+            sound.loop();
         }
+
         public void stopMusic(){
         sound.stop();
         }

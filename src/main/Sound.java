@@ -6,7 +6,7 @@ import javax.sound.sampled.Clip;
 
 public class Sound {
     Clip clip;
-    URL soundURL[]= new URL[30];
+    URL soundURL[]= new URL[5];
     public Sound(){
         soundURL[0] = getClass().getResource("/sound/Theme.wav");
         soundURL[1] = getClass().getResource("/sound/Coin.wav");
