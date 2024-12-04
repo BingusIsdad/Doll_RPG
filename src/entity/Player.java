@@ -116,6 +116,11 @@ switch(objectName){
         gp.obj[i]=null;
         gp.ui.showMessage("You feel faster.");
         break;
+    case "Chest":
+        gp.ui.gameFinished = true;
+        gp.stopMusic();
+        gp.playSE(4);
+        break;
 }
 }
     }
