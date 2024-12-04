@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.text.DecimalFormat;
 
 public class UI {
     GamePanel gp;
@@ -14,7 +15,8 @@ public class UI {
     public String message = "";
     int messageCounter = 0;
     public boolean gameFinished = false;
-
+    double playTime;
+    DecimalFormat dFormat = new DecimalFormat("#0.00");
     public UI(GamePanel gp) {
         this.gp = gp;
         earthb = new Font("Earthbound Dialogue", Font.PLAIN, 40);
@@ -30,6 +32,8 @@ public class UI {
 
     public void draw(Graphics2D g2) {
         if (gameFinished == true) {
+            g2.setFont(earthb);
+            g2.setColor(Color.white);
             String text;
             int textLength;
             int x;
@@ -38,6 +42,11 @@ public class UI {
             textLength = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
             x = gp.screenWidth/2 - textLength/2;
             y = gp.screenHeight/2 - (gp.tileSize*3);
+            g2.drawString(text,x,y);
+            text = "Your Time: "+dFormat.format(playTime)+".";
+            textLength = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+            x = gp.screenWidth/2 - textLength/2;
+            y = gp.screenHeight/2 + (gp.tileSize*4);
             g2.drawString(text,x,y);
             g2.setFont(earthbig);
             g2.setColor(Color.yellow);
@@ -53,6 +62,9 @@ public class UI {
             g2.setColor(Color.white);
             g2.drawImage(keyImage, gp.tileSize / 2, gp.tileSize / 2, gp.tileSize, gp.tileSize, null);
             g2.drawString("x " + gp.player.hasKey, 74, 65);
+            //TIME
+            playTime +=(double)1/60;
+            g2.drawString("Time:"+dFormat.format(playTime),gp.tileSize*11,65);
             //MESSAGE
             if (messageOn == true) {
                 g2.setFont(g2.getFont().deriveFont(30F));
