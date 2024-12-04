@@ -97,19 +97,24 @@ switch(objectName){
         gp.playSE(1);
         hasKey++;
         gp.obj[i]=null;
-        System.out.println("Key:"+hasKey);
+        gp.ui.showMessage("You Got A Key! Don't You Feel Special!");
         break;
     case"Door":
         if(hasKey>-0){
             gp.playSE(3);
             gp.obj[i]=null;
             hasKey--;
+            gp.ui.showMessage("You have opened a door. You feel like this doesn't need to be announced.");
+        }
+        else{
+            gp.ui.showMessage("Get a key first.");
         }
         break;
     case"Boots":
         gp.playSE(2);
         speed+=2;
         gp.obj[i]=null;
+        gp.ui.showMessage("You feel faster.");
         break;
 }
 }
