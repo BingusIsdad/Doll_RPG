@@ -36,18 +36,19 @@ public class Player extends Entity {
     }
     public void getPlayerImage(){
         try{
-            up1 = ImageIO.read(getClass().getResourceAsStream("/platter/pixil-frame-2.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("/platter/pixil-frame-3.png"));
-        down1 = ImageIO.read(getClass().getResourceAsStream("/platter/pixil-frame-0.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/platter/pixil-frame-1.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/platter/pixil-frame-6.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("/platter/pixil-frame-7.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/platter/pixil-frame-4.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("/platter/pixil-frame-5.png"));
+            up1 = ImageIO.read(getClass().getResourceAsStream("/platter/up1.png"));
+            up2 = ImageIO.read(getClass().getResourceAsStream("/platter/up2.png"));
+        down1 = ImageIO.read(getClass().getResourceAsStream("/platter/down1.png"));
+            down2 = ImageIO.read(getClass().getResourceAsStream("/platter/down2.png"));
+            left1 = ImageIO.read(getClass().getResourceAsStream("/platter/left1.png"));
+            left2 = ImageIO.read(getClass().getResourceAsStream("/platter/left2.png"));
+            right1 = ImageIO.read(getClass().getResourceAsStream("/platter/right1.png"));
+            right2 = ImageIO.read(getClass().getResourceAsStream("/platter/right2.png"));
         }catch(IOException e){
             e.printStackTrace();
         }
     }
+    public BufferedImage setup(String imageName)
     public void update(){
         if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true) {
 
