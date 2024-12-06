@@ -21,7 +21,7 @@ public class UI {
         this.gp = gp;
         earthb = new Font("Earthbound Dialogue", Font.PLAIN, 40);
         earthbig = new Font("Earthbound Dialogue", Font.PLAIN, 80);
-        OBJ_Key key = new OBJ_Key();
+        OBJ_Key key = new OBJ_Key(gp);
         keyImage = key.image;
     }
 
