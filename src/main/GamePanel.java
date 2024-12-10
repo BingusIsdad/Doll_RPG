@@ -1,6 +1,8 @@
 package main;
 import javax.swing.JPanel;
 import java.awt.*;
+
+import entity.Entity;
 import entity.Player;
 import object.SuperObject;
 import tile.TileManager;
@@ -33,6 +35,7 @@ public class GamePanel extends JPanel implements Runnable {
     //ENTITY AND OBJECT
     public Player player = new Player(this, keyH);
     public SuperObject obj[] = new SuperObject[10];
+    public Entity npc[] = new Entity[10];
     //GAME STATE
     public int gameState;
     public final int playState = 1;
