@@ -13,7 +13,7 @@ public class Player extends Entity {
     KeyHandler keyH;
     public final int screenX;
     public final int screenY;
-    public int hasKey = 0;
+    //public int hasKey = 0;
     public Player(GamePanel gp, KeyHandler keyH){
         this.gp = gp;
         this.keyH = keyH;
@@ -98,40 +98,10 @@ public class Player extends Entity {
             }
         }
     }
-    public void pickUpObject(int i){
-if(i != 999){
-String objectName = gp.obj[i].name;
-switch(objectName){
-    case "Key":
-        gp.playSE(1);
-        hasKey++;
-        gp.obj[i]=null;
-        gp.ui.showMessage("You Got A Key! Don't You Feel Special!");
-        break;
-    case"Door":
-        if(hasKey>-0){
-            gp.playSE(3);
-            gp.obj[i]=null;
-            hasKey--;
-            gp.ui.showMessage("You have opened a door. You feel like this doesn't need to be announced.");
+    public void pickUpObject(int i) {
+        if (i != 999) {
+
         }
-        else{
-            gp.ui.showMessage("Get a key first.");
-        }
-        break;
-    case"Boots":
-        gp.playSE(2);
-        speed+=2;
-        gp.obj[i]=null;
-        gp.ui.showMessage("You feel faster.");
-        break;
-    case "Chest":
-        gp.ui.gameFinished = true;
-        gp.stopMusic();
-        gp.playSE(4);
-        break;
-}
-}
     }
     public void draw(Graphics2D g2){
 //g2.setColor(Color.white);
