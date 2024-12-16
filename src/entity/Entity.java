@@ -29,6 +29,8 @@ public class Entity {
         setAction();
         collisionOn = false;
         gp.cChecker.checkTile(this);
+        gp.cChecker.checkObject(this, false);
+        gp.cChecker.checkPlayer(this);
         //IF COLLISION IS FALSE, PLAYER CAN MOVE
         if(collisionOn == false){
             switch(direction){
