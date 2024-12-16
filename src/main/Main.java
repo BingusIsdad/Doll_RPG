@@ -1,4 +1,4 @@
-//This was made using a tutorial series of videos. Source:https://www.youtube.com/watch?v=om59cwR7psI&list=PL_QPQmz5C6WUF-pOQDsbsKbaBZqXj4qSq
+//This was made usaing a tutorial series of videos. Source:https://www.youtube.com/watch?v=om59cwR7psI&list=PL_QPQmz5C6WUF-pOQDsbsKbaBZqXj4qSq
 package main;
 import javax.swing.JFrame;
 public class Main{

@@ -1,9 +1,7 @@
 package main;
 import object.OBJ_Key;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.text.DecimalFormat;
 
@@ -55,13 +53,21 @@ public class UI {
         int x = gp.tileSize*2;
         int y = gp.tileSize/2;
         int width = gp.screenWidth - (gp.tileSize*4);
-        int height = gp.tileSize*5;
+        int height = gp.tileSize*4;
         drawSubWindow(x,y,width,height);
     }
     public void drawSubWindow(int x, int y, int width, int height){
         Color c = new Color(0,0,0);
         g2.setColor(c);
         g2.fillRoundRect(x,y,width,height, 35, 35);
+        c = new Color(136,144,144);
+        g2.setColor(c);
+        g2.setStroke(new BasicStroke(5));
+        g2.drawRoundRect(x+5, y+5, width-10,height-10,25,25);
+        c = new Color(240,240,240);
+        g2.setColor(c);
+        g2.setStroke(new BasicStroke(3));
+        g2.drawRoundRect(x+7,y+7,width-15,height-15,15,15);
     }
     public int getXforCenteredText(String text){
         int length = (int)g2.getFontMetrics().getStringBounds(text,g2).getWidth();
