@@ -14,6 +14,7 @@ public class UI {
     public String message = "";
     int messageCounter = 0;
     public boolean gameFinished = false;
+    public String currentDialogue = "";
     public UI(GamePanel gp) {
         this.gp = gp;
         earthb = new Font("Earthbound Dialogue", Font.PLAIN, 40);
@@ -55,6 +56,9 @@ public class UI {
         int width = gp.screenWidth - (gp.tileSize*4);
         int height = gp.tileSize*4;
         drawSubWindow(x,y,width,height);
+        x += gp.tileSize;
+        y += gp.tileSize;
+        g2.drawString(currentDialogue, x,y);
     }
     public void drawSubWindow(int x, int y, int width, int height){
         Color c = new Color(0,0,0);

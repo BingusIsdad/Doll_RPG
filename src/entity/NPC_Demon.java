@@ -10,6 +10,7 @@ public class NPC_Demon extends Entity{
         direction = "down";
         speed = 1;
         getImage();
+        setDialogue();
     }
     public void getImage(){
 
@@ -21,6 +22,10 @@ public class NPC_Demon extends Entity{
         left2 = setup("/npc/demonleft2");
         right1 = setup("/npc/demonright1");
         right2 = setup("/npc/demonright2");
+    }
+    public void setDialogue(){
+        dialogues[0] = "Graahhh I'm a demon!!!11!1!";
+
     }
     public void setAction(){
         actionLockCounter ++;
@@ -44,5 +49,8 @@ public class NPC_Demon extends Entity{
             actionLockCounter = 0;
         }
 
+    }
+    public void speak(){
+        gp.ui.currentDialogue = dialogues[0];
     }
 }
