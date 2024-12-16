@@ -16,14 +16,10 @@ public class UI {
     public String message = "";
     int messageCounter = 0;
     public boolean gameFinished = false;
-    double playTime;
-    DecimalFormat dFormat = new DecimalFormat("#0.00");
     public UI(GamePanel gp) {
         this.gp = gp;
         earthb = new Font("Earthbound Dialogue", Font.PLAIN, 40);
         earthbig = new Font("Earthbound Dialogue", Font.PLAIN, 80);
-        //OBJ_Key key = new OBJ_Key(gp);
-        //keyImage = key.image;
     }
 
     public void showMessage(String text) {
@@ -38,8 +34,13 @@ public class UI {
         if(gp.gameState == gp.playState){
             //Do playState stuff later
         }
+        //PAUSE STATE
         if(gp.gameState == gp.pauseState){
             drawPauseScreen();
+        }
+        //DIALOGUE STATE
+        if(gp.gameState == gp.dialogueState){
+            drawDialogueScreen();
         }
     }
     public void drawPauseScreen(){
@@ -48,6 +49,19 @@ public class UI {
 
         int y = gp.screenHeight/2;
         g2.drawString(text,x,y);
+    }
+    public void drawDialogueScreen(){
+        //WINDOW
+        int x = gp.tileSize*2;
+        int y = gp.tileSize/2;
+        int width = gp.screenWidth - (gp.tileSize*4);
+        int height = gp.tileSize*5;
+        drawSubWindow(x,y,width,height);
+    }
+    public void drawSubWindow(int x, int y, int width, int height){
+        Color c = new Color(0,0,0);
+        g2.setColor(c);
+        g2.fillRoundRect(x,y,width,height, 35, 35);
     }
     public int getXforCenteredText(String text){
         int length = (int)g2.getFontMetrics().getStringBounds(text,g2).getWidth();

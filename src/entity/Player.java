@@ -97,7 +97,7 @@ public class Player extends Entity {
     }
     public void interactNPC(int i){
         if(i!=999){
-            System.out.println("YOU TOUCHING NPC");
+            gp.gameState = gp.dialogueState;
         }
     }
     public void draw(Graphics2D g2){
