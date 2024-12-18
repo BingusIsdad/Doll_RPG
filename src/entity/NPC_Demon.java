@@ -27,7 +27,7 @@ public class NPC_Demon extends Entity{
         dialogues[0] ="Graahhh I'm a demon!!!11!1!";
         dialogues[1]="You're talking to me!";
         dialogues[2]="Have fun!";
-        dialogues[3]="Goodbye!";
+        dialogues[3]="Did you know the moon landing was \nfaked?";
     }
     public void setAction(){
         actionLockCounter ++;
@@ -53,7 +53,7 @@ public class NPC_Demon extends Entity{
 
     }
     public void speak(){
-        gp.ui.currentDialogue = dialogues[dialogueIndex];
-        dialogueIndex++;
+        //DO this character specific stuff
+        super.speak();
     }
 }
