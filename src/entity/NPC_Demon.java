@@ -24,8 +24,10 @@ public class NPC_Demon extends Entity{
         right2 = setup("/npc/demonright2");
     }
     public void setDialogue(){
-        dialogues[0] = "Graahhh I'm a demon!!!11!1!";
-
+        dialogues[0] ="Graahhh I'm a demon!!!11!1!";
+        dialogues[1]="You're talking to me!";
+        dialogues[2]="Have fun!";
+        dialogues[3]="Goodbye!";
     }
     public void setAction(){
         actionLockCounter ++;
@@ -51,6 +53,7 @@ public class NPC_Demon extends Entity{
 
     }
     public void speak(){
-        gp.ui.currentDialogue = dialogues[0];
+        gp.ui.currentDialogue = dialogues[dialogueIndex];
+        dialogueIndex++;
     }
 }
