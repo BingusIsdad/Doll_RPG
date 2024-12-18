@@ -30,6 +30,11 @@ public class UI {
         this.g2 = g2;
         g2.setFont(earthb);
         g2.setColor(Color.white);
+        //Title state
+        if(gp.gameState == gp.titleState){
+            drawTitleScreen();
+        }
+        //Play state
         if(gp.gameState == gp.playState){
             //Do playState stuff later
         }
@@ -41,6 +46,15 @@ public class UI {
         if(gp.gameState == gp.dialogueState){
             drawDialogueScreen();
         }
+    }
+    public void drawTitleScreen(){
+        //Title Name
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD,96F));
+        String text = "Doll RPG";
+        int x = getXforCenteredText(text);
+        int y = gp.tileSize*3;
+        g2.setColor(Color.white);
+        g2.drawString(text,x,y);
     }
     public void drawPauseScreen(){
         String text = "PAUSED";
