@@ -15,6 +15,8 @@ public class UI {
     int messageCounter = 0;
     public boolean gameFinished = false;
     public String currentDialogue = "";
+    public int commandNum = 0;
+    public int titleScreenState = 0; //0: the first screen, 1: the second screen
     public UI(GamePanel gp) {
         this.gp = gp;
         earthb = new Font("Earthbound Dialogue", Font.PLAIN, 40);
@@ -48,13 +50,85 @@ public class UI {
         }
     }
     public void drawTitleScreen(){
-        //Title Name
-        g2.setFont(g2.getFont().deriveFont(Font.BOLD,96F));
-        String text = "Doll RPG";
-        int x = getXforCenteredText(text);
-        int y = gp.tileSize*3;
-        g2.setColor(Color.white);
-        g2.drawString(text,x,y);
+        if(titleScreenState == 0){
+            g2.setColor(new Color(24,0,56));
+            g2.fillRect(0,0,gp.screenWidth,gp.screenHeight);
+            //Title Name
+            g2.setFont(g2.getFont().deriveFont(Font.BOLD,96F));
+            String text = "Doll RPG";
+            int x = getXforCenteredText(text);
+            int y = gp.tileSize*3;
+            //Shadow
+            g2.setColor(new Color(200,200,112));
+            g2.drawString(text, x+5,y+5);
+            //Main Color
+            g2.setColor(new Color(200,96,112));
+            g2.drawString(text,x,y);
+            //Doll Image
+            x = gp.screenWidth/2 - (gp.tileSize*2)/2;
+            y += gp.tileSize*2;
+            g2.drawImage(gp.player.down1,x,y,gp.tileSize*2,gp.tileSize*2,null);
+            //MENU
+            g2.setFont(g2.getFont().deriveFont(Font.BOLD,48F));
+            text = "NEW GAME";
+            x = getXforCenteredText(text);
+            y += gp.tileSize*4;
+            g2.drawString(text,x,y);
+            if(commandNum == 0){
+                g2.drawString(">", x-gp.tileSize,y);
+            }
+            text = "LOAD GAME";
+            x = getXforCenteredText(text);
+            y += gp.tileSize;
+            g2.drawString(text,x,y);
+            if(commandNum == 1){
+                g2.drawString(">", x-gp.tileSize,y);
+            }
+            text = "GOODBYE";
+            x = getXforCenteredText(text);
+            y += gp.tileSize;
+            g2.drawString(text,x,y);
+            if(commandNum == 2){
+                g2.drawString(">", x-gp.tileSize,y);
+            }
+        }
+        else if(titleScreenState == 1){
+            //CLASS SELECTION SCREEN
+            g2.setColor(Color.white);
+            g2.setFont(g2.getFont().deriveFont(42F));
+            String text = "Select your class";
+            int x = getXforCenteredText(text);
+            int y = gp.tileSize*3;
+            g2.drawString(text,x,y);
+            text = "Brawler Doll";
+            x = getXforCenteredText(text);
+            y += gp.tileSize*3;
+            g2.drawString(text,x,y);
+            if(commandNum == 0){
+                g2.drawString(">",x-gp.tileSize,y);
+            }
+            text = "Sneaky Doll";
+            x = getXforCenteredText(text);
+            y += gp.tileSize;
+            g2.drawString(text,x,y);
+            if(commandNum == 1){
+                g2.drawString(">",x-gp.tileSize,y);
+            }
+            text = "Magical Doll";
+            x = getXforCenteredText(text);
+            y += gp.tileSize;
+            g2.drawString(text,x,y);
+            if(commandNum == 2){
+                g2.drawString(">",x-gp.tileSize,y);
+            }
+            text = "Go Back";
+            x = getXforCenteredText(text);
+            y += gp.tileSize*2;
+            if(commandNum == 3){
+                g2.drawString(">",x-gp.tileSize,y);
+            }
+        }
+
     }
     public void drawPauseScreen(){
         String text = "PAUSED";

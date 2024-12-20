@@ -2,6 +2,7 @@ package main;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.security.Key;
 
 public class KeyHandler implements KeyListener {
     GamePanel gp;
@@ -19,6 +20,70 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
+        //TITLE STATE
+        if(gp.gameState == gp.titleState){
+            if(gp.ui.titleScreenState == 0){
+                if(code == KeyEvent.VK_UP){
+                    gp.ui.commandNum--;
+                    if (gp.ui.commandNum < 0){
+                        gp.ui.commandNum = 2;
+                    }
+                }
+                if(code == KeyEvent.VK_DOWN){
+                    gp.ui.commandNum++;
+                    if(gp.ui.commandNum > 2){
+                        gp.ui.commandNum = 0;
+                    }
+                }
+                if(code == KeyEvent.VK_ENTER){
+                    if(gp.ui.commandNum == 0){
+                        gp.ui.titleScreenState = 1;
+                    }
+                    if(gp.ui.commandNum == 1){
+                        //Add Later
+                    }
+                    if(gp.ui.commandNum == 2){
+                        System.exit(0);
+                    }
+                }
+            }
+            else if(gp.ui.titleScreenState == 1){
+                if(code == KeyEvent.VK_UP){
+                    gp.ui.commandNum--;
+                    if (gp.ui.commandNum < 0){
+                        gp.ui.commandNum = 3;
+                    }
+                }
+                if(code == KeyEvent.VK_DOWN){
+                    gp.ui.commandNum++;
+                    if(gp.ui.commandNum > 2){
+                        gp.ui.commandNum = 0;
+                    }
+                }
+                if(code == KeyEvent.VK_ENTER){
+                    if(gp.ui.commandNum == 0){
+                        System.out.println("Do some physical stuff");
+                        gp.gameState = gp.playState;
+                        gp.playMusic(0);
+                    }
+                    if(gp.ui.commandNum == 1){
+                        System.out.println("Do some sneaky stuff");
+                        gp.gameState = gp.playState;
+                        gp.playMusic(0);
+                    }
+                    if(gp.ui.commandNum == 2){
+                        System.out.println("Do some magical stuff");
+                        gp.gameState = gp.playState;
+                        gp.playMusic(0);
+                    }
+                    if(gp.ui.commandNum == 3){
+                        gp.ui.titleScreenState = 0;
+
+                    }
+                }
+            }
+
+        }
         //PLAY STATE
         if(gp.gameState == gp.playState){
             if (code == KeyEvent.VK_W) {
@@ -36,7 +101,7 @@ public class KeyHandler implements KeyListener {
             if(code == KeyEvent.VK_P){
                 gp.gameState = gp.pauseState;
             }
-            if(code==KeyEvent.VK_ENTER){
+            if(code==KeyEvent.VK_E){
                 enterPressed = true;
             }
         }
@@ -48,7 +113,7 @@ public class KeyHandler implements KeyListener {
         }
         //Dialogue State
         else if(gp.gameState == gp.dialogueState){
-            if(code == KeyEvent.VK_ENTER){
+            if(code == KeyEvent.VK_E){
                 gp.gameState = gp.playState;
             }
         }
