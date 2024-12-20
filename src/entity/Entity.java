@@ -23,6 +23,10 @@ public class Entity {
     public int actionLockCounter = 0;
     String dialogues[] = new String[20];
     int dialogueIndex = 0;
+    //Character Status
+    public int maxArmor;
+    public int armor;
+
 
     public Entity(GamePanel gp){
         this.gp = gp;

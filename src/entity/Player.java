@@ -33,6 +33,9 @@ public class Player extends Entity {
         worldY= gp.tileSize*21;
         speed = 4;
         direction = "down";
+        //Player Status
+        maxArmor = 6;
+        armor = maxArmor;
     }
     public void getPlayerImage(){
 

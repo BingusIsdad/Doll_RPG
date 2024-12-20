@@ -1,5 +1,7 @@
 package main;
+import object.OBJ_Armor;
 import object.OBJ_Key;
+import object.SuperObject;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -9,6 +11,7 @@ public class UI {
     GamePanel gp;
     Graphics2D g2;
     Font earthb, earthbig;
+    BufferedImage armorFull, armorHalf, armorEmpty;
     //BufferedImage keyImage;
     public boolean messageOn = false;
     public String message = "";
@@ -21,7 +24,14 @@ public class UI {
         this.gp = gp;
         earthb = new Font("Earthbound Dialogue", Font.PLAIN, 40);
         earthbig = new Font("Earthbound Dialogue", Font.PLAIN, 80);
+        //Create HUD Object
+        SuperObject armor = new OBJ_Armor(gp);
+        armorFull = armor.image;
+        armorHalf = armor.image2;
+        armorEmpty = armor.image3;
+
     }
+
 
     public void showMessage(String text) {
         message = text;
@@ -38,15 +48,27 @@ public class UI {
         }
         //Play state
         if(gp.gameState == gp.playState){
-            //Do playState stuff later
+            drawPlayerArmor();
         }
         //PAUSE STATE
         if(gp.gameState == gp.pauseState){
+            drawPlayerArmor();
             drawPauseScreen();
         }
         //DIALOGUE STATE
         if(gp.gameState == gp.dialogueState){
+            drawPlayerArmor();
             drawDialogueScreen();
+        }
+    }
+    public void drawPlayerArmor(){
+        int x = gp.tileSize/2;
+        int y = gp.tileSize/2;
+        int i = 0;
+        while(i<gp.player.maxArmor/2){
+            g2.drawImage(armorEmpty,x,y,null);
+            i++;
+            x+=gp.tileSize;
         }
     }
     public void drawTitleScreen(){
