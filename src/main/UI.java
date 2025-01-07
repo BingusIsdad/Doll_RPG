@@ -61,11 +61,28 @@ public class UI {
         }
     }
     public void drawPlayerLife(){
+        gp.player.armor = 6;
         int x = gp.tileSize/2;
         int y = gp.tileSize/2;
         int i = 0;
+
+        //Draw Empty Armor
         while(i<gp.player.maxArmor/2){
             g2.drawImage(armorEmpty,x,y,null);
+            i++;
+            x+=gp.tileSize;
+        }
+        //Reset
+        x = gp.tileSize/2;
+        y = gp.tileSize/2;
+        i = 0;
+        //Draw Current Armor
+        while(i<gp.player.armor){
+            g2.drawImage(armorHalf,x,y,null);
+            i++;
+            if(i < gp.player.armor){
+                g2.drawImage(armorFull,x,y,null);
+            }
             i++;
             x+=gp.tileSize;
         }
