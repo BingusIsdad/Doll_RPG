@@ -1,11 +1,9 @@
 package main;
 import object.OBJ_Armor;
-import object.OBJ_Key;
 import object.SuperObject;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.text.DecimalFormat;
 
 public class UI {
     GamePanel gp;
@@ -46,22 +44,23 @@ public class UI {
         if(gp.gameState == gp.titleState){
             drawTitleScreen();
         }
-        //Play state
+        //Play State
         if(gp.gameState == gp.playState){
-            drawPlayerArmor();
+            drawPlayerLife();
+
         }
-        //PAUSE STATE
+        //Pause State
         if(gp.gameState == gp.pauseState){
-            drawPlayerArmor();
+            drawPlayerLife();
             drawPauseScreen();
         }
-        //DIALOGUE STATE
+        //Dialogue State
         if(gp.gameState == gp.dialogueState){
-            drawPlayerArmor();
+            drawPlayerLife();
             drawDialogueScreen();
         }
     }
-    public void drawPlayerArmor(){
+    public void drawPlayerLife(){
         int x = gp.tileSize/2;
         int y = gp.tileSize/2;
         int i = 0;
