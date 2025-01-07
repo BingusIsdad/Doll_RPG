@@ -73,6 +73,8 @@ public class Player extends Entity {
            //CHECK NPC COLLISION
             int npcIndex = gp.cChecker.checkEntity(this, gp.npc);
             interactNPC(npcIndex);
+            //Check Event
+            gp.eHandler.checkEvent();
             //IF COLLISION IS FALSE, PLAYER CAN MOVE
             if(collisionOn == false){
                 switch(direction){
