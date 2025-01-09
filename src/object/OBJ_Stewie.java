@@ -1,5 +1,22 @@
 package object;
 
-public class OBJ_Stewie {
-    //USE HIM AS THE PROJECTILE, YOU CAN ONLY SHOOT IF YOU HAVE STEWIE AND HE SHOOTS HIS FRIGGIN RAY GUN
+import main.GamePanel;
+
+import javax.imageio.ImageIO;
+import java.io.IOException;
+
+public class OBJ_Stewie extends SuperObject{
+    GamePanel gp;
+    public OBJ_Stewie(GamePanel gp){
+        this.gp = gp;
+        name = "Stewie";
+        try{
+            image = ImageIO.read(getClass().getResourceAsStream("/objects/stew.png"));
+            uTool.scaleImage(image, gp.tileSize, gp.tileSize);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
+
+    }
 }

@@ -1,10 +1,8 @@
 package main;
 
 import entity.NPC_Demon;
-import object.OBJ_Boots;
-import object.OBJ_Chest;
-import object.OBJ_Door;
-import object.OBJ_Key;
+import object.*;
+
 public class AssetSetter {
 GamePanel gp;
 
@@ -13,6 +11,9 @@ GamePanel gp;
 
     }
     public void setObject(){
+        gp.obj[0] = new OBJ_Stewie(gp);
+        gp.obj[0].worldX = gp.tileSize*23;
+        gp.obj[0].worldY = gp.tileSize*7;
 
     }
     public void setNPC(){
