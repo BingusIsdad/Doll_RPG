@@ -31,6 +31,7 @@ public class TileManager {
     setup(6, "blankgrass",false);
     setup(7,"waterdown",true);
     setup(8,"waterright",true);
+    setup(9,"waterCornerRighDown",true);
 
     }
     public void setup(int index, String imageName, boolean collision){
